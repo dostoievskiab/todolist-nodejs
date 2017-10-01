@@ -5,7 +5,7 @@
   <title>Lembretes</title>
 </head>
 <body>
-
+<h2>Read</h2>
 <ul class="quotes">
   <% for(var i=0;i<quotes.length; i++) {%>
     <li class="quote">
@@ -15,10 +15,17 @@
 <% } %>
 </ul>
 
+<h2>Create</h2>
 <form action="/quotes" method="POST">
   <input type="text" placeholder="Autor" name="name"><br>
-  <input type="text" placeholder="Lembrete" name="quote"><br>
+  <input type="text" placeholder="Lembrete" name="quote">
   <button type="submit">Salvar!</button>
 </form>
+<h2>Update</h2>
+<form>
+  <input id="pesquisa" type="text" placeholder="Autor">
+  <button id="update">Substituir!</button>
+</form>
+<script src="main.js"></script>
 </body>
 </html>
