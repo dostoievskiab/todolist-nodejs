@@ -30,7 +30,6 @@ app.get('/', (req, res) => {
 })
 
 app.put('/quotes', (req, res) => {
-  console.log(req.body.procura)
   db.collection('quotes').findOneAndUpdate({name: req.body.procura}, {
     $set: {
       name: req.body.name,
@@ -51,4 +50,12 @@ app.post('/quotes', (req, res) => {
     if (err) return console.log(err)
     res.redirect('/')
   })
+})
+
+app.delete('/quotes', (req, res) =>{
+  db.collection('quotes').findOneAndDelete({name: req.body.name},
+    (err, result) => {
+      if (err) return res.send(500, err)
+      res.send({message: 'Quote deleted!'})
+    })
 })
