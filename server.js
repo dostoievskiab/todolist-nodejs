@@ -3,11 +3,12 @@ const bodyParser = require('body-parser')
 const app = express();
 const porta = 3000 //Porta do listening
 const MongoClient = require('mongodb').MongoClient
+require('dotenv').config()
 var db
 
 //Conexão com o DB e informações básicas sobre o funcionamento
 //Retirado o primeiro paramento por que contem dados do BD
-MongoClient.connect('mongodb://dbuser:Teste123@ds149324.mlab.com:49324/db-crud', (err,database) =>
+MongoClient.connect(process.env.DB_STRING, (err,database) =>
 {
   if (err) return console.log(err)
   db = database
